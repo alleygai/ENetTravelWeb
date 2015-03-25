@@ -167,6 +167,8 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Pic\airplane.jpg" />
     <Content Include="Pic\cityscape.jpg" />
+    <Content Include="Pic\d-travel-logo-21.jpg" />
+    <Content Include="Pic\logo.png" />
     <Content Include="Pic\quay.jpg" />
     <Content Include="Pic\sunrise.jpg" />
     <Content Include="Pic\tooltip\airplane.jpg" />

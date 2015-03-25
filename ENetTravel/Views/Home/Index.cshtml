@@ -8,217 +8,208 @@
 </style>
 <link href="http://localhost:64632/Content/sliderstyle.css" rel="stylesheet" />
 
-<div style="height:40%;">
-    <div class="masthead">
-        <div class="header">
-            <div class="layout">
-                <a href="/" class="logo"><img src="logo.png" alt="Plan your trip"></a>
+<div class="masthead">
+    <div class="header">
+        <div class="layout">
+            <a href="/" class="logo"><img src="~/Pic/logo.png" alt="Plan your trip"></a>
 
-                <form class="masthead-search" action="/super/search/">
-                    <div class="search-inp">
-                        <i class="icon-sys-search"></i>
-                        <input name="q" type="text" placeholder="国家、目的地...">
-                    </div>
-                    <button type="submit" class="bt-search">搜索</button>
-                </form>
-            </div>
-        </div>
-        <div class="masthead-nav layout-auto">
-            <div class="inner layout">
-                <ul class="masthead-nav-list">
-                    <li class="current"><a class="home" href="/">首页</a></li>
-                    <li><a class="home" href="/advisor/?rf=header&amp;hasstart=1">定制自由行</a></li>
-                    <li><a href="/supers/">超级自由行</a></li>
-                    <li>
-                        <a href="/place/">目的地 <i class="icon-sys-arr"></i></a>
-                        <div class="drop-menu place-menu">
-                            <div class="place-items">
-                                <p>欧洲 Europe</p>
-                                <div class="cell-place-item">
-                                    <a href="/place/15300000000/" class="inline-btn">荷兰</a>
-                                    <a href="/place/15000000000/" class="inline-btn">英国</a>
-                                    <a href="/place/19000000000/" class="inline-btn">希腊</a>
-                                    <a href="/place/15600000000/" class="inline-btn">德国</a>
-                                    <a href="/place/17500000000/" class="inline-btn">匈牙利</a>
-                                    <a href="/place/15100000000/" class="inline-btn">瑞士</a>
-                                    <a href="/place/16300000000/" class="inline-btn">法国</a>
-                                    <a href="/place/15800000000/" class="inline-btn">意大利</a>
-                                    <a href="/place/15400000000/" class="inline-btn">比利时</a>
-                                    <a href="/place/16100000000/" class="inline-btn">葡萄牙</a>
-                                    <a href="/place/18400000000/" class="inline-btn">挪威</a>
-                                    <a href="/place/19200000000/" class="inline-btn">土耳其</a>
-                                    <a href="/place/17300000000/" class="inline-btn">捷克</a>
-                                    <a href="/place/16000000000/" class="inline-btn">西班牙</a>
-                                    <a href="/place/17200000000/" class="inline-btn">奥地利</a>
-                                    <a href="/place/18300000000/" class="inline-btn">瑞典</a>
-                                    <a href="/place/18700000000/" class="inline-btn">丹麦</a>
-                                </div>
-                            </div>
-                            <div class="place-items">
-                                <p>北美洲   North American</p>
-                                <div class="cell-place-item">
-                                    <a href="/place/10000000000/" class="inline-btn">美国</a>
-                                    <a href="/place/10100000000/" class="inline-btn">加拿大</a>
-                                </div>
-                            </div>
-                            <div class="place-items">
-                                <p>大洋洲   Oceania</p>
-                                <div class="cell-place-item">
-                                    <a href="/place/30500000000/" class="inline-btn">澳大利亚</a>
-                                    <a href="/place/31700000000/" class="inline-btn">斐济群岛</a>
-                                    <a href="/place/30600000000/" class="inline-btn">新西兰</a>
-                                </div>
-                            </div>
-                            <div class="place-items">
-                                <p>亚洲   Asia</p>
-                                <div class="cell-place-item">
-                                    <a href="/place/20000000000/" class="inline-btn">日本</a>
-                                    <a href="/place/20900000000/" class="inline-btn">新加坡</a>
-                                    <a href="/place/21300000000/" class="inline-btn">尼泊尔</a>
-                                    <a href="/place/21200000000/" class="inline-btn">不丹</a>
-                                    <a href="/place/21800000000/" class="inline-btn">马尔代夫</a>
-                                    <a href="/place/19700003500/" class="inline-btn">香港</a>
-                                    <a href="/place/24300000000/" class="inline-btn">阿联酋</a>
-                                </div>
-                            </div>
-                            <div class="place-items">
-                                <p>非洲   Africa</p>
-                                <div class="cell-place-item">
-                                    <a href="/place/26300000000/" class="inline-btn">塞舌尔</a>
-                                    <a href="/place/30200000000/" class="inline-btn">毛里求斯</a>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="/star/">达人<i class="icon-sys-arr"></i></a>
-                        <div class="drop-menu">
-                            <a href="/blog/experience/" class="item">实用经验</a>
-                            <a href="/blog/showcase/" class="item">旅行晒货</a>
-                            <a href="/blog/track/" class="item">精彩游记</a>
-                            <a href="/star/" class="item">达人广场</a>
-                            <a href="/question/" class="item tcl">旅行问答</a>
-                        </div>
-                    </li>
-                    <li class="masthead-tmall">
-                        <a href="http://tmall.shijiebang.com/">商城<i class="icon-sys-arr"></i></a>
-                        <div class="drop-menu">
-                            <a target="_blank" class="item" href="http://tmall.shijiebang.com/plane/"><i class="icon-tmall-i1 default"></i><i class="icon-tmall-i1-a hover"></i>机票</a>
-                            <a target="_blank" class="item" href="http://tmall.shijiebang.com/visa/"><i class="icon-tmall-i3 default"></i><i class="icon-tmall-i3-a hover"></i>签证</a>
-                            <a target="_blank" class="item" href="http://tmall.shijiebang.com/hotel/"><i class="icon-tmall-i5 default"></i><i class="icon-tmall-i5-a hover"></i>住宿</a>
-                            <a target="_blank" class="item" href="http://tmall.shijiebang.com/baoxian/"><i class="icon-tmall-i7 default"></i><i class="icon-tmall-i7-a hover"></i>保险</a>
-                            <a target="_blank" class="item" href="http://tmall.shijiebang.com/common-list_1_112_0_0_0_0_0_0_0_0_0_0_0_0.html"><i class="icon-tmall-i12 default"></i><i class="icon-tmall-i12-a hover"></i>海岛</a>
-
-                            <a target="_blank" class="item" href="http://tmall.shijiebang.com/common-list_1_109_0_0_0_0_0_0_0_0_0_0_0_0.html"><i class="icon-tmall-i13 default"></i><i class="icon-tmall-i13-a hover"></i>服务</a>
-                            <a target="_blank" class="item" href="http://tmall.shijiebang.com/train/"><i class="icon-tmall-i9 default"></i><i class="icon-tmall-i9-a hover"></i>欧铁</a>
-                            <a target="_blank" class="item" href="http://tmall.shijiebang.com/pickup-list_1_103009_0_0_0_0_0_0_0_0_0_0_0_0.html"><i class="icon-tmall-i11 default"></i><i class="icon-tmall-i11-a hover"></i>接送</a>
-                            <a target="_blank" class="item" href="http://tmall.shijiebang.com/common-list_1_103010_0_0_0_0_0_0_0_0_0_0_0_0.html"><i class="icon-tmall-i2 default"></i><i class="icon-tmall-i2-a hover"></i>租车</a>
-                            <a target="_blank" class="item" href="http://tmall.shijiebang.com/common-list_1_103012_0_0_0_0_0_0_0_0_0_0_0_0.html"><i class="icon-tmall-i4 default"></i><i class="icon-tmall-i4-a hover"></i>包车</a>
-                            <a target="_blank" class="item" href="http://tmall.shijiebang.com/common-list_1_104005_0_0_0_0_0_0_0_0_0_0_0_0.html"><i class="icon-tmall-i6 default"></i><i class="icon-tmall-i6-a hover"></i>通票</a>
-
-                            <a target="_blank" class="item" href="http://tmall.shijiebang.com/common-list_1_106_0_0_0_0_0_0_0_0_0_0_0_0.html"><i class="icon-tmall-i10 default"></i><i class="icon-tmall-i10-a hover"></i>门票</a>
-                            <a target="_blank" class="item" href="http://tmall.shijiebang.com/common-list_1_104_0_0_0_0_0_0_0_0_0_0_0_0.html"><i class="icon-tmall-i8 default"></i><i class="icon-tmall-i8-a hover"></i>观光</a>
-                        </div>
-
-                    </li>
-                    <li>
-                        <a target="_blank" class="small" href="http://tmall.shijiebang.com/visa/">签证</a>
-                    </li>
-                    <li>
-                        <a target="_blank" class="small" href="http://tmall.shijiebang.com/plane/">机票</a>
-                    </li>
-                    <li>
-                        <a target="_blank" class="small" href="http://tmall.shijiebang.com/hotel/">住宿</a>
-                    </li>
-                    <li>
-                        <a target="_blank" class="small" href="http://tmall.shijiebang.com/baoxian/">保险</a>
-                    </li>
-                </ul>
-            </div>
+            <form class="masthead-search" action="/super/search/">
+                <div class="search-inp">
+                    <i class="icon-sys-search"></i>
+                    <input name="q" type="text" placeholder="国家、目的地...">
+                </div>
+                <button type="submit" class="bt-search">搜索</button>
+            </form>
         </div>
     </div>
-    <div class="rt-container slider-container" style="width:830px; margin:auto">
-        <div class="rt-grid-12 rt-alpha rt-omega">
-
-            <div class="csslider1 autoplay">
-                <input name="cs_anchor1" id="cs_slide1_0" type="radio" class="cs_anchor slide">
-                <input name="cs_anchor1" id="cs_slide1_1" type="radio" class="cs_anchor slide">
-                <input name="cs_anchor1" id="cs_slide1_2" type="radio" class="cs_anchor slide">
-                <input name="cs_anchor1" id="cs_slide1_3" type="radio" class="cs_anchor slide">
-                <input name="cs_anchor1" id="cs_play1" type="radio" class="cs_anchor" checked="">
-                <input name="cs_anchor1" id="cs_pause1" type="radio" class="cs_anchor">
-                <ul>
-                    <div style="width: 100%; visibility: hidden; font-size: 0px; line-height: 0;">
-                        <img src="~/Pic/airplane.jpg" style="width: 100%;">
+    <div class="masthead-nav layout-auto">
+        <div class="inner layout">
+            <ul class="masthead-nav-list">
+                <li class="current"><a class="home" href="/">首页</a></li>
+                <li><a class="home" href="/advisor/?rf=header&amp;hasstart=1">定制自由行</a></li>
+                <li><a href="/supers/">超级自由行</a></li>
+                <li>
+                    <a href="/place/">目的地 <i class="icon-sys-arr"></i></a>
+                    <div class="drop-menu place-menu">
+                        <div class="place-items">
+                            <p>欧洲 Europe</p>
+                            <div class="cell-place-item">
+                                <a href="/place/15300000000/" class="inline-btn">荷兰</a>
+                                <a href="/place/15000000000/" class="inline-btn">英国</a>
+                                <a href="/place/19000000000/" class="inline-btn">希腊</a>
+                                <a href="/place/15600000000/" class="inline-btn">德国</a>
+                                <a href="/place/17500000000/" class="inline-btn">匈牙利</a>
+                                <a href="/place/15100000000/" class="inline-btn">瑞士</a>
+                                <a href="/place/16300000000/" class="inline-btn">法国</a>
+                                <a href="/place/15800000000/" class="inline-btn">意大利</a>
+                                <a href="/place/15400000000/" class="inline-btn">比利时</a>
+                                <a href="/place/16100000000/" class="inline-btn">葡萄牙</a>
+                                <a href="/place/18400000000/" class="inline-btn">挪威</a>
+                                <a href="/place/19200000000/" class="inline-btn">土耳其</a>
+                                <a href="/place/17300000000/" class="inline-btn">捷克</a>
+                                <a href="/place/16000000000/" class="inline-btn">西班牙</a>
+                                <a href="/place/17200000000/" class="inline-btn">奥地利</a>
+                                <a href="/place/18300000000/" class="inline-btn">瑞典</a>
+                                <a href="/place/18700000000/" class="inline-btn">丹麦</a>
+                            </div>
+                        </div>
+                        <div class="place-items">
+                            <p>北美洲   North American</p>
+                            <div class="cell-place-item">
+                                <a href="/place/10000000000/" class="inline-btn">美国</a>
+                                <a href="/place/10100000000/" class="inline-btn">加拿大</a>
+                            </div>
+                        </div>
+                        <div class="place-items">
+                            <p>大洋洲   Oceania</p>
+                            <div class="cell-place-item">
+                                <a href="/place/30500000000/" class="inline-btn">澳大利亚</a>
+                                <a href="/place/31700000000/" class="inline-btn">斐济群岛</a>
+                                <a href="/place/30600000000/" class="inline-btn">新西兰</a>
+                            </div>
+                        </div>
+                        <div class="place-items">
+                            <p>亚洲   Asia</p>
+                            <div class="cell-place-item">
+                                <a href="/place/20000000000/" class="inline-btn">日本</a>
+                                <a href="/place/20900000000/" class="inline-btn">新加坡</a>
+                                <a href="/place/21300000000/" class="inline-btn">尼泊尔</a>
+                                <a href="/place/21200000000/" class="inline-btn">不丹</a>
+                                <a href="/place/21800000000/" class="inline-btn">马尔代夫</a>
+                                <a href="/place/19700003500/" class="inline-btn">香港</a>
+                                <a href="/place/24300000000/" class="inline-btn">阿联酋</a>
+                            </div>
+                        </div>
+                        <div class="place-items">
+                            <p>非洲   Africa</p>
+                            <div class="cell-place-item">
+                                <a href="/place/26300000000/" class="inline-btn">塞舌尔</a>
+                                <a href="/place/30200000000/" class="inline-btn">毛里求斯</a>
+                            </div>
+                        </div>
                     </div>
-                    <li class="num0 img">
-                        <img src="~/Pic/airplane.jpg" alt="Landing of airplane" title="Landing of airplane">
-                    </li>
-                    <li class="num1 img">
-                        <img src="~/Pic/cityscape.jpg" alt="Amazing cityscape" title="Amazing cityscape">
-                    </li>
-                    <li class="num2 img">
-                        <img src="~/Pic/quay.jpg" alt="Quay" title="Quay">
-                    </li>
-                    <li class="num3 img">
-                        <img src="~/Pic/sunrise.jpg" alt="Sunrise" title="Sunrise">
-                    </li>
+                </li>
+                <li>
+                    <a href="/star/">达人<i class="icon-sys-arr"></i></a>
+                    <div class="drop-menu">
+                        <a href="/blog/experience/" class="item">实用经验</a>
+                        <a href="/blog/showcase/" class="item">旅行晒货</a>
+                        <a href="/blog/track/" class="item">精彩游记</a>
+                        <a href="/star/" class="item">达人广场</a>
+                        <a href="/question/" class="item tcl">旅行问答</a>
+                    </div>
+                </li>
+                <li class="masthead-tmall">
+                    <a href="http://tmall.shijiebang.com/">商城<i class="icon-sys-arr"></i></a>
+                    <div class="drop-menu">
+                        <a target="_blank" class="item" href="http://tmall.shijiebang.com/plane/"><i class="icon-tmall-i1 default"></i><i class="icon-tmall-i1-a hover"></i>机票</a>
+                        <a target="_blank" class="item" href="http://tmall.shijiebang.com/visa/"><i class="icon-tmall-i3 default"></i><i class="icon-tmall-i3-a hover"></i>签证</a>
+                        <a target="_blank" class="item" href="http://tmall.shijiebang.com/hotel/"><i class="icon-tmall-i5 default"></i><i class="icon-tmall-i5-a hover"></i>住宿</a>
+                        <a target="_blank" class="item" href="http://tmall.shijiebang.com/baoxian/"><i class="icon-tmall-i7 default"></i><i class="icon-tmall-i7-a hover"></i>保险</a>
+                        <a target="_blank" class="item" href="http://tmall.shijiebang.com/common-list_1_112_0_0_0_0_0_0_0_0_0_0_0_0.html"><i class="icon-tmall-i12 default"></i><i class="icon-tmall-i12-a hover"></i>海岛</a>
 
-                </ul>
-                <div class="cs_description">
-                    <label class="num0">
-                        <span class="cs_title"><span class="cs_wrapper"><a href="http://www.google.com.au">Landing of airplane</a></span></span>
-                        <br><span class="cs_descr"><span class="cs_wrapper">Brisbane, Australia</span></span>
-                    </label>
-                    <label class="num1">
-                        <span class="cs_title"><span class="cs_wrapper">Amazing cityscape</span></span>
-                        <br><span class="cs_descr"><span class="cs_wrapper">Brisbane, Australia</span></span>
-                    </label>
-                    <label class="num2">
-                        <span class="cs_title"><span class="cs_wrapper">Quay</span></span>
-                        <br><span class="cs_descr"><span class="cs_wrapper">Brisbane, Australia</span></span>
-                    </label>
-                    <label class="num3">
-                        <span class="cs_title"><span class="cs_wrapper">Sunrise</span></span>
-                        <br><span class="cs_descr"><span class="cs_wrapper">Brisbane, Australia</span></span>
-                    </label>
-                </div>
+                        <a target="_blank" class="item" href="http://tmall.shijiebang.com/common-list_1_109_0_0_0_0_0_0_0_0_0_0_0_0.html"><i class="icon-tmall-i13 default"></i><i class="icon-tmall-i13-a hover"></i>服务</a>
+                        <a target="_blank" class="item" href="http://tmall.shijiebang.com/train/"><i class="icon-tmall-i9 default"></i><i class="icon-tmall-i9-a hover"></i>欧铁</a>
+                        <a target="_blank" class="item" href="http://tmall.shijiebang.com/pickup-list_1_103009_0_0_0_0_0_0_0_0_0_0_0_0.html"><i class="icon-tmall-i11 default"></i><i class="icon-tmall-i11-a hover"></i>接送</a>
+                        <a target="_blank" class="item" href="http://tmall.shijiebang.com/common-list_1_103010_0_0_0_0_0_0_0_0_0_0_0_0.html"><i class="icon-tmall-i2 default"></i><i class="icon-tmall-i2-a hover"></i>租车</a>
+                        <a target="_blank" class="item" href="http://tmall.shijiebang.com/common-list_1_103012_0_0_0_0_0_0_0_0_0_0_0_0.html"><i class="icon-tmall-i4 default"></i><i class="icon-tmall-i4-a hover"></i>包车</a>
+                        <a target="_blank" class="item" href="http://tmall.shijiebang.com/common-list_1_104005_0_0_0_0_0_0_0_0_0_0_0_0.html"><i class="icon-tmall-i6 default"></i><i class="icon-tmall-i6-a hover"></i>通票</a>
 
-                <div class="cs_arrowprev">
-                    <label class="num0" for="cs_slide1_0"></label>
-                    <label class="num1" for="cs_slide1_1"></label>
-                    <label class="num2" for="cs_slide1_2"></label>
-                    <label class="num3" for="cs_slide1_3"></label>
-                </div>
-                <div class="cs_arrownext">
-                    <label class="num0" for="cs_slide1_0"></label>
-                    <label class="num1" for="cs_slide1_1"></label>
-                    <label class="num2" for="cs_slide1_2"></label>
-                    <label class="num3" for="cs_slide1_3"></label>
-                </div>
+                        <a target="_blank" class="item" href="http://tmall.shijiebang.com/common-list_1_106_0_0_0_0_0_0_0_0_0_0_0_0.html"><i class="icon-tmall-i10 default"></i><i class="icon-tmall-i10-a hover"></i>门票</a>
+                        <a target="_blank" class="item" href="http://tmall.shijiebang.com/common-list_1_104_0_0_0_0_0_0_0_0_0_0_0_0.html"><i class="icon-tmall-i8 default"></i><i class="icon-tmall-i8-a hover"></i>观光</a>
+                    </div>
 
-                <div class="cs_bullets">
-                    <label class="num0" for="cs_slide1_0">
-                        <span class="cs_point"></span>
-                        <span class="cs_thumb"><img src="~/Pic/tooltip/airplane.jpg" alt="Landing of airplane" title="Landing of airplane"></span>
-                    </label>
-                    <label class="num1" for="cs_slide1_1">
-                        <span class="cs_point"></span>
-                        <span class="cs_thumb"><img src="~/Pic/tooltip/cityscape.jpg" alt="Amazing cityscape" title="Amazing cityscape"></span>
-                    </label>
-                    <label class="num2" for="cs_slide1_2">
-                        <span class="cs_point"></span>
-                        <span class="cs_thumb"><img src="~/Pic/tooltip/quay.jpg" alt="Quay" title="Quay"></span>
-                    </label>
-                    <label class="num3" for="cs_slide1_3">
-                        <span class="cs_point"></span>
-                        <span class="cs_thumb"><img src="~/Pic/tooltip/sunrise.jpg" alt="Sunrise" title="Sunrise"></span>
-                    </label>
-                </div>
-            </div>
-
+                </li>
+                <li>
+                    <a target="_blank" class="small" href="http://tmall.shijiebang.com/visa/">签证</a>
+                </li>
+                <li>
+                    <a target="_blank" class="small" href="http://tmall.shijiebang.com/plane/">机票</a>
+                </li>
+                <li>
+                    <a target="_blank" class="small" href="http://tmall.shijiebang.com/hotel/">住宿</a>
+                </li>
+                <li>
+                    <a target="_blank" class="small" href="http://tmall.shijiebang.com/baoxian/">保险</a>
+                </li>
+            </ul>
         </div>
-        <div class="clear"></div>
+    </div>
+</div>
+<div class="csslider1 autoplay">
+    <input name="cs_anchor1" id="cs_slide1_0" type="radio" class="cs_anchor slide">
+    <input name="cs_anchor1" id="cs_slide1_1" type="radio" class="cs_anchor slide">
+    <input name="cs_anchor1" id="cs_slide1_2" type="radio" class="cs_anchor slide">
+    <input name="cs_anchor1" id="cs_slide1_3" type="radio" class="cs_anchor slide">
+    <input name="cs_anchor1" id="cs_play1" type="radio" class="cs_anchor" checked="">
+    <input name="cs_anchor1" id="cs_pause1" type="radio" class="cs_anchor">
+    <ul>
+        <div style="width: 100%; visibility: hidden; font-size: 0px; line-height: 0;">
+            <img src="~/Pic/airplane.jpg" style="width: 100%;">
+        </div>
+        <li class="num0 img">
+            <img src="~/Pic/airplane.jpg" alt="Landing of airplane" title="Landing of airplane">
+        </li>
+        <li class="num1 img">
+            <img src="~/Pic/cityscape.jpg" alt="Amazing cityscape" title="Amazing cityscape">
+        </li>
+        <li class="num2 img">
+            <img src="~/Pic/quay.jpg" alt="Quay" title="Quay">
+        </li>
+        <li class="num3 img">
+            <img src="~/Pic/sunrise.jpg" alt="Sunrise" title="Sunrise">
+        </li>
+
+    </ul>
+    <div class="cs_description">
+        <label class="num0">
+            <span class="cs_title"><span class="cs_wrapper"><a href="http://www.google.com.au">Landing of airplane</a></span></span>
+            <br><span class="cs_descr"><span class="cs_wrapper">Brisbane, Australia</span></span>
+        </label>
+        <label class="num1">
+            <span class="cs_title"><span class="cs_wrapper">Amazing cityscape</span></span>
+            <br><span class="cs_descr"><span class="cs_wrapper">Brisbane, Australia</span></span>
+        </label>
+        <label class="num2">
+            <span class="cs_title"><span class="cs_wrapper">Quay</span></span>
+            <br><span class="cs_descr"><span class="cs_wrapper">Brisbane, Australia</span></span>
+        </label>
+        <label class="num3">
+            <span class="cs_title"><span class="cs_wrapper">Sunrise</span></span>
+            <br><span class="cs_descr"><span class="cs_wrapper">Brisbane, Australia</span></span>
+        </label>
+    </div>
+
+    <div class="cs_arrowprev">
+        <label class="num0" for="cs_slide1_0"></label>
+        <label class="num1" for="cs_slide1_1"></label>
+        <label class="num2" for="cs_slide1_2"></label>
+        <label class="num3" for="cs_slide1_3"></label>
+    </div>
+    <div class="cs_arrownext">
+        <label class="num0" for="cs_slide1_0"></label>
+        <label class="num1" for="cs_slide1_1"></label>
+        <label class="num2" for="cs_slide1_2"></label>
+        <label class="num3" for="cs_slide1_3"></label>
+    </div>
+
+    <div class="cs_bullets">
+        <label class="num0" for="cs_slide1_0">
+            <span class="cs_point"></span>
+            <span class="cs_thumb"><img src="~/Pic/tooltip/airplane.jpg" alt="Landing of airplane" title="Landing of airplane"></span>
+        </label>
+        <label class="num1" for="cs_slide1_1">
+            <span class="cs_point"></span>
+            <span class="cs_thumb"><img src="~/Pic/tooltip/cityscape.jpg" alt="Amazing cityscape" title="Amazing cityscape"></span>
+        </label>
+        <label class="num2" for="cs_slide1_2">
+            <span class="cs_point"></span>
+            <span class="cs_thumb"><img src="~/Pic/tooltip/quay.jpg" alt="Quay" title="Quay"></span>
+        </label>
+        <label class="num3" for="cs_slide1_3">
+            <span class="cs_point"></span>
+            <span class="cs_thumb"><img src="~/Pic/tooltip/sunrise.jpg" alt="Sunrise" title="Sunrise"></span>
+        </label>
     </div>
 </div>
 
@@ -247,7 +238,7 @@
             </form>
         </div>
         <div>
-            <h3>选择您的偏好</h3>
+            选择您的偏好
             <table class="table">
                 <tbody>
                     <tr>
@@ -272,14 +263,7 @@
             </table>
         </div>
         <div style="background:#0069B4; padding:2px;">
-            <input style="  background: #fff;
-  border: 0;
-  font-size: 1.6em;
-  text-align: center;
-  color: #0069b4;
-  padding: 10px;
-  margin: 5px;
-  width:51px;" value="Go" />
+            <input style="background: #fff;border: 0;font-size: 1.6em;text-align: center;color: #0069b4;padding: 10px;margin: 5px;width:51px;" value="Go" />
         </div>
     </div>
     <div class="col-md-6">
