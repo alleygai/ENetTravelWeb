@@ -10,8 +10,7 @@
 
 .csslider1 {
     display: inline-block;
-    position: relative;
-    max-width: 830px;
+    position: relative
     width: 100%;
     margin-top: 10px;
 }
