@@ -1,4 +1,4 @@
-<style>
+﻿<style>
     .DivZBottom {
         width: 100%;
         height: 500px;
@@ -6,24 +6,32 @@
         margin: 0;
     }
 </style>
-<link href="http://localhost:64632/Content/sliderstyle.css" rel="stylesheet" />
 
 <div class="masthead">
     <div class="header">
         <div class="layout">
-            <a href="/" class="logo"><img src="~/Pic/logo.png" alt="Plan your trip"></a>
-
-            <form class="masthead-search" action="/super/search/">
+            <a href="/" class="logo"><img src="../../Pic/logo.png" alt="Plan your trip"></a>
+            <ul class="masthead-info">
+                <li class="mobile">
+                    <a href="http://www.shijiebang.com/topic/app-main/"> <i class="icon-sys-mobile"></i>手机客户端</a>
+                </li>
+                <li>预定咨询：<strong>4006-345-100</strong></li>
+            </ul>
+            <!--<form class="masthead-search" action="/super/search/">
                 <div class="search-inp">
                     <i class="icon-sys-search"></i>
                     <input name="q" type="text" placeholder="国家、目的地...">
                 </div>
                 <button type="submit" class="bt-search">搜索</button>
-            </form>
+            </form>-->
         </div>
     </div>
     <div class="masthead-nav layout-auto">
         <div class="inner layout">
+            <ul class="masthead-user-status user-login js_loginDock">
+                <li><a class="js_loginBtn" href="/login/">登录</a></li>
+                <li><a class="js_regBtn" href="/reg/?refer=">注册</a></li>
+            </ul>
             <ul class="masthead-nav-list">
                 <li class="current"><a class="home" href="/">首页</a></li>
                 <li><a class="home" href="/advisor/?rf=header&amp;hasstart=1">定制自由行</a></li>
@@ -144,20 +152,20 @@
     <input name="cs_anchor1" id="cs_play1" type="radio" class="cs_anchor" checked="">
     <input name="cs_anchor1" id="cs_pause1" type="radio" class="cs_anchor">
     <ul>
-        <div style="width: 100%; visibility: hidden; font-size: 0px; line-height: 0;">
-            <img src="~/Pic/airplane.jpg" style="width: 100%;">
+        <div style="height:300px; width: 100%; visibility: hidden; font-size: 0px; line-height: 0;">
+            <img src="../../Pic/airplane.jpg" style="width: 100%;">
         </div>
         <li class="num0 img">
-            <img src="~/Pic/airplane.jpg" alt="Landing of airplane" title="Landing of airplane">
+            <img src="../../Pic/airplane.jpg" alt="Landing of airplane" title="Landing of airplane">
         </li>
         <li class="num1 img">
-            <img src="~/Pic/cityscape.jpg" alt="Amazing cityscape" title="Amazing cityscape">
+            <img src="../../Pic/cityscape.jpg" alt="Amazing cityscape" title="Amazing cityscape">
         </li>
         <li class="num2 img">
-            <img src="~/Pic/quay.jpg" alt="Quay" title="Quay">
+            <img src="../../Pic/quay.jpg" alt="Quay" title="Quay">
         </li>
         <li class="num3 img">
-            <img src="~/Pic/sunrise.jpg" alt="Sunrise" title="Sunrise">
+            <img src="../../Pic/sunrise.jpg" alt="Sunrise" title="Sunrise">
         </li>
 
     </ul>
@@ -196,26 +204,26 @@
     <div class="cs_bullets">
         <label class="num0" for="cs_slide1_0">
             <span class="cs_point"></span>
-            <span class="cs_thumb"><img src="~/Pic/tooltip/airplane.jpg" alt="Landing of airplane" title="Landing of airplane"></span>
+            <span class="cs_thumb"><img src="../../Pic/tooltip/airplane.jpg" alt="Landing of airplane" title="Landing of airplane"></span>
         </label>
         <label class="num1" for="cs_slide1_1">
             <span class="cs_point"></span>
-            <span class="cs_thumb"><img src="~/Pic/tooltip/cityscape.jpg" alt="Amazing cityscape" title="Amazing cityscape"></span>
+            <span class="cs_thumb"><img src="../../Pic/tooltip/cityscape.jpg" alt="Amazing cityscape" title="Amazing cityscape"></span>
         </label>
         <label class="num2" for="cs_slide1_2">
             <span class="cs_point"></span>
-            <span class="cs_thumb"><img src="~/Pic/tooltip/quay.jpg" alt="Quay" title="Quay"></span>
+            <span class="cs_thumb"><img src="../../Pic/tooltip/quay.jpg" alt="Quay" title="Quay"></span>
         </label>
         <label class="num3" for="cs_slide1_3">
             <span class="cs_point"></span>
-            <span class="cs_thumb"><img src="~/Pic/tooltip/sunrise.jpg" alt="Sunrise" title="Sunrise"></span>
+            <span class="cs_thumb"><img src="../../Pic/tooltip/sunrise.jpg" alt="Sunrise" title="Sunrise"></span>
         </label>
     </div>
 </div>
 
 <div class="container" style="margin-top:20px;">
     <div class="col-md-6">
-        <div style="background:#0069B4; padding-top:30px;padding-bottom:10px;padding-left:20px;padding-right:20px;">
+        <div style="background:#0069B4; padding-top:40px;padding-bottom:15px;padding-left:25px;padding-right:25px;">
             <form class="form-group">
                 <div class="form-group">
                     <label for="startvalue" style="color:white;">起点</label>

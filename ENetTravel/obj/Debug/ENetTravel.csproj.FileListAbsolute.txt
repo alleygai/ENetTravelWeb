@@ -49,3 +49,29 @@ C:\Users\Xu\Documents\visual studio 2013\Projects\ENetTravelWeb\ENetTravel\bin\N
 C:\Users\Xu\Documents\visual studio 2013\Projects\ENetTravelWeb\ENetTravel\obj\Debug\ENetTravel.csprojResolveAssemblyReference.cache
 C:\Users\Xu\Documents\visual studio 2013\Projects\ENetTravelWeb\ENetTravel\obj\Debug\ENetTravel.dll
 C:\Users\Xu\Documents\visual studio 2013\Projects\ENetTravelWeb\ENetTravel\obj\Debug\ENetTravel.pdb
+C:\Users\AlleyGai\Desktop\ENetTravelWeb\ENetTravel\bin\ENetTravel.dll.config
+C:\Users\AlleyGai\Desktop\ENetTravelWeb\ENetTravel\bin\ENetTravel.dll
+C:\Users\AlleyGai\Desktop\ENetTravelWeb\ENetTravel\bin\ENetTravel.pdb
+C:\Users\AlleyGai\Desktop\ENetTravelWeb\ENetTravel\bin\Antlr3.Runtime.dll
+C:\Users\AlleyGai\Desktop\ENetTravelWeb\ENetTravel\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\AlleyGai\Desktop\ENetTravelWeb\ENetTravel\bin\Newtonsoft.Json.dll
+C:\Users\AlleyGai\Desktop\ENetTravelWeb\ENetTravel\bin\System.Web.Helpers.dll
+C:\Users\AlleyGai\Desktop\ENetTravelWeb\ENetTravel\bin\System.Web.Mvc.dll
+C:\Users\AlleyGai\Desktop\ENetTravelWeb\ENetTravel\bin\System.Web.Optimization.dll
+C:\Users\AlleyGai\Desktop\ENetTravelWeb\ENetTravel\bin\System.Web.Razor.dll
+C:\Users\AlleyGai\Desktop\ENetTravelWeb\ENetTravel\bin\System.Web.WebPages.Deployment.dll
+C:\Users\AlleyGai\Desktop\ENetTravelWeb\ENetTravel\bin\System.Web.WebPages.dll
+C:\Users\AlleyGai\Desktop\ENetTravelWeb\ENetTravel\bin\System.Web.WebPages.Razor.dll
+C:\Users\AlleyGai\Desktop\ENetTravelWeb\ENetTravel\bin\WebGrease.dll
+C:\Users\AlleyGai\Desktop\ENetTravelWeb\ENetTravel\bin\System.Web.Helpers.xml
+C:\Users\AlleyGai\Desktop\ENetTravelWeb\ENetTravel\bin\System.Web.Mvc.xml
+C:\Users\AlleyGai\Desktop\ENetTravelWeb\ENetTravel\bin\System.Web.Optimization.xml
+C:\Users\AlleyGai\Desktop\ENetTravelWeb\ENetTravel\bin\System.Web.Razor.xml
+C:\Users\AlleyGai\Desktop\ENetTravelWeb\ENetTravel\bin\System.Web.WebPages.xml
+C:\Users\AlleyGai\Desktop\ENetTravelWeb\ENetTravel\bin\System.Web.WebPages.Deployment.xml
+C:\Users\AlleyGai\Desktop\ENetTravelWeb\ENetTravel\bin\System.Web.WebPages.Razor.xml
+C:\Users\AlleyGai\Desktop\ENetTravelWeb\ENetTravel\bin\Antlr3.Runtime.pdb
+C:\Users\AlleyGai\Desktop\ENetTravelWeb\ENetTravel\bin\Newtonsoft.Json.xml
+C:\Users\AlleyGai\Desktop\ENetTravelWeb\ENetTravel\obj\Debug\ENetTravel.csprojResolveAssemblyReference.cache
+C:\Users\AlleyGai\Desktop\ENetTravelWeb\ENetTravel\obj\Debug\ENetTravel.dll
+C:\Users\AlleyGai\Desktop\ENetTravelWeb\ENetTravel\obj\Debug\ENetTravel.pdb
