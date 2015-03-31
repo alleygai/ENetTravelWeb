@@ -6,7 +6,6 @@
         margin: 0;
     }
 </style>
-<script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0&mkt=zh-CN,en-us"></script>
 
 <div class="masthead">
     <div class="header">
@@ -227,12 +226,12 @@
         <div style="background:#0069B4; padding-top:40px;padding-bottom:15px;padding-left:25px;padding-right:25px;">
             <form class="form-group">
                 <div class="form-group">
-                    <label for="txtStart" style="color:white;">起点</label>
-                    <input id="txtStart" placeholder="起始" class="form-control" />
+                    <label for="startvalue" style="color:white;">起点</label>
+                    <input id="startvalue" placeholder="起始" class="form-control" />
                 </div>
                 <div class="form-group">
-                    <label for="txtEnd" style="color:white;">终点</label>
-                    <input id="txtEnd" placeholder="终点" class="form-control" />
+                    <label for="endvalue" style="color:white;">终点</label>
+                    <input id="endvalue" placeholder="终点" class="form-control" />
                 </div>
                 <div class="form-group">
                     <label style="color:white;" for="datepickerstart">
@@ -276,7 +275,7 @@
         </div>
     </div>
     <div class="col-md-6" id="mapPanel">
-        <div id="mapDiv" class="DivZBottom"></div>
+        <div id="map_canvas" class="DivZBottom"></div>
     </div>
 </div>
 
@@ -314,251 +313,251 @@
 <script type="text/javascript">
 
     $(document).ready(function () {
-        //render controls
-        $("#slider1").slider({
-            min: 1,
-            max: 5,
-            range: "min",
-            value: 1,
-            slide: function (event, ui) {
-                $("#slider1").slider("value", ui.value);
-            }
-        });
-        $("#slider2").slider({
-            min: 1,
-            max: 5,
-            range: "min",
-            value: 1,
-            slide: function (event, ui) {
-                $("#slider2").slider("value", ui.value);
-            }
-        });
-        $("#slider3").slider({
-            min: 1,
-            max: 5,
-            range: "min",
-            value: 1,
-            slide: function (event, ui) {
-                $("#slider3").slider("value", ui.value);
-            }
-        });
-        $("#slider4").slider({
-            min: 1,
-            max: 5,
-            range: "min",
-            value: 1,
-            slide: function (event, ui) {
-                $("#slider4").slider("value", ui.value);
-            }
-        });
-        $("#slider5").slider({
-            min: 1,
-            max: 5,
-            range: "min",
-            value: 1,
-            slide: function (event, ui) {
-                $("#slider5").slider("value", ui.value);
-            }
-        });
-        $("#slider6").slider({
-            min: 1,
-            max: 5,
-            range: "min",
-            value: 1,
-            slide: function (event, ui) {
-                $("#slider6").slider("value", ui.value);
-            }
-        });
-        $("#datepickerstart").datepicker({
-            defaultDate: "+1w",
-            changeMonth: true,
-            numberOfMonths: 2,
-            onClose: function (selectedDate) {
-                $("#datepickerend").datepicker("option", "minDate", selectedDate);
-            }
-        });
-        $("#datepickerend").datepicker({
-            defaultDate: "+1w",
-            changeMonth: true,
-            numberOfMonths: 2,
-            onClose: function (selectedDate) {
-                $("#datepickerstart").datepicker("option", "maxDate", selectedDate);
-            }
-        });
+        //$.getScript('http://maps.google.cn/maps/api/js?libraries=geometry&sensor=false&key=AIzaSyDuVPF7CxcYsNQhLlwCbTMgThoUl0UQHhg&callback=googleMapCbFun');
+        Initialize();
 
-        //render bing map
-        GetMap();
-    });
-
-
-
-    var map = null;
-    var keyCredentials = "AhyTz5ChTP2XN6uMNDxUEWT1zn2YVWKNrW5CS2CtTUm-jJBgpvF74TKRQqoogYd7";
-
-    function GetMap() {
-        // Initialize the map
-        map = new Microsoft.Maps.Map(
-            document.getElementById("mapDiv"),
-            {
-                credentials: keyCredentials,
-                mapTypeId: Microsoft.Maps.MapTypeId.auto,
-                showCopyright: false
+        $(function () {
+            $("#slider1").slider({
+                min: 1,
+                max: 5,
+                range: "min",
+                value: 1,
+                slide: function (event, ui) {
+                    $("#slider1").slider("value", ui.value);
+                }
             });
-    }
-
-    function ClickRoute(credentials) {
-        map.getCredentials(MakeRouteRequest);
-    }
-
-    function MarkInMap(credentials) {
-        map.getCredentials(MarkPointRequest);
-    }
-
-    function MakeRouteRequest(credentials) {
-        var routeRequest = "http://dev.virtualearth.net/REST/v1/Routes?wp.0=" +
-            document.getElementById('txtStart').value + "&wp.1=" + document.getElementById('txtEnd').value + "&routePathOutput=Points&output=json&jsonp=RouteCallback&key=" + credentials;
-        CallRestService(routeRequest);
-    }
-
-    function MarkPointRequest(credentials) {
-        var routeRequest = "http://dev.virtualearth.net/REST/v1/Routes?wp.0=" +
-            document.getElementById('txtStart').value + "&wp.1=" + document.getElementById('txtStart').value + "&routePathOutput=Points&output=json&jsonp=MarkPointRequestCallBack&key=" + credentials;
-        CallRestService(routeRequest);
-    }
-
-    function MarkPointRequestCallBack(result) {
-        if (result &&
-            result.resourceSets &&
-            result.resourceSets.length > 0 &&
-            result.resourceSets[0].resources &&
-            result.resourceSets[0].resources.length > 0) {
-
-            // Set the map view
-            var bbox = result.resourceSets[0].resources[0].bbox;
-            var viewBoundaries = Microsoft.Maps.LocationRect.fromLocations(
-                new Microsoft.Maps.Location(bbox[0], bbox[1]),
-                new Microsoft.Maps.Location(bbox[2], bbox[3]));
-            map.setView({ bounds: viewBoundaries });
-
-            // Draw the route
-            var routeline = result.resourceSets[0].resources[0].routePath.line;
-            var routepoints = new Array();
-
-            for (var i = 0; i < routeline.coordinates.length; i++) {
-                routepoints[i] = new Microsoft.Maps.Location(routeline.coordinates[i][0], routeline.coordinates[i][1]);
-            }
-
-            // Draw the marker on the map
-            map.entities.clear();
-            var pin = new Microsoft.Maps.Pushpin(routepoints[0]);
-            map.entities.push(pin);
-        }
-    }
-
-    function RouteCallback(result) {
-        if (result &&
-            result.resourceSets &&
-            result.resourceSets.length > 0 &&
-            result.resourceSets[0].resources &&
-            result.resourceSets[0].resources.length > 0) {
-
-            // Set the map view
-            var bbox = result.resourceSets[0].resources[0].bbox;
-            var viewBoundaries = Microsoft.Maps.LocationRect.fromLocations(
-                new Microsoft.Maps.Location(bbox[0], bbox[1]),
-                new Microsoft.Maps.Location(bbox[2], bbox[3]));
-            map.setView({ bounds: viewBoundaries });
-
-            // Draw the route
-            var routeline = result.resourceSets[0].resources[0].routePath.line;
-            var routepoints = new Array();
-
-            for (var i = 0; i < routeline.coordinates.length; i++) {
-                routepoints[i] = new Microsoft.Maps.Location(routeline.coordinates[i][0], routeline.coordinates[i][1]);
-            }
-
-            // Draw the route on the map
-            map.entities.clear();
-            var routeshape = new Microsoft.Maps.Polyline(routepoints, { strokeColor: new Microsoft.Maps.Color(200, 0, 0, 200) });
-            map.entities.push(routeshape);
-            var pin = new Microsoft.Maps.Pushpin(routepoints[0]);
-
-            map.entities.push(pin);
-            pin = new Microsoft.Maps.Pushpin(routepoints[routeline.coordinates.length - 1]);
-            map.entities.push(pin);
-        }
-    }
-
-    function CallRestService(request) {
-        var script = document.createElement("script");
-        script.setAttribute("type", "text/javascript");
-        script.setAttribute("src", request);
-        document.body.appendChild(script);
-    }
-
-    $(document).ready(function () {
-        $("#txtStart").autocomplete({
-            source: function (request, response) {
-                $.ajax({
-                    url: "http://dev.virtualearth.net/REST/v1/Locations?&mkt=zh-CN",
-                    dataType: "jsonp",
-                    data: {
-                        key: keyCredentials,
-                        q: request.term
-                    },
-                    jsonp: "jsonp",
-                    success: function (data) {
-                        var result = data.resourceSets[0];
-                        if (result) {
-                            if (result.estimatedTotal > 0) {
-                                response($.map(result.resources, function (item) {
-                                    return {
-                                        data: item,
-                                        label: item.name + ' (' + item.address.countryRegion + ')',
-                                        value: item.name
-                                    }
-                                }));
-                            }
-                        }
-                    }
-                });
-            },
-            minLength: 1,
-            select: function (event, ui) {
-                MarkInMap();
-            }
+            $("#slider2").slider({
+                min: 1,
+                max: 5,
+                range: "min",
+                value: 1,
+                slide: function (event, ui) {
+                    $("#slider2").slider("value", ui.value);
+                }
+            });
+            $("#slider3").slider({
+                min: 1,
+                max: 5,
+                range: "min",
+                value: 1,
+                slide: function (event, ui) {
+                    $("#slider3").slider("value", ui.value);
+                }
+            });
+            $("#slider4").slider({
+                min: 1,
+                max: 5,
+                range: "min",
+                value: 1,
+                slide: function (event, ui) {
+                    $("#slider4").slider("value", ui.value);
+                }
+            });
+            $("#slider5").slider({
+                min: 1,
+                max: 5,
+                range: "min",
+                value: 1,
+                slide: function (event, ui) {
+                    $("#slider5").slider("value", ui.value);
+                }
+            });
+            $("#slider6").slider({
+                min: 1,
+                max: 5,
+                range: "min",
+                value: 1,
+                slide: function (event, ui) {
+                    $("#slider6").slider("value", ui.value);
+                }
+            });
         });
-        $("#txtEnd").autocomplete({
-            source: function (request, response) {
-                $.ajax({
-                    url: "http://dev.virtualearth.net/REST/v1/Locations?&mkt=zh-CN",
-                    dataType: "jsonp",
-                    data: {
-                        key: keyCredentials,
-                        q: request.term
-                    },
-                    jsonp: "jsonp",
-                    success: function (data) {
-                        var result = data.resourceSets[0];
-                        if (result) {
-                            if (result.estimatedTotal > 0) {
-                                response($.map(result.resources, function (item) {
-                                    return {
-                                        data: item,
-                                        label: item.name + ' (' + item.address.countryRegion + ')',
-                                        value: item.name
-                                    }
-                                }));
-                            }
-                        }
-                    }
-                });
-            },
-            minLength: 1,
-            select: function (event, ui) {
-                ClickRoute();
-            }
+
+        $(function () {
+            $("#datepickerstart").datepicker({
+                defaultDate: "+1w",
+                changeMonth: true,
+                numberOfMonths: 2,
+                onClose: function (selectedDate) {
+                    $("#datepickerend").datepicker("option", "minDate", selectedDate);
+                }
+            });
+            $("#datepickerend").datepicker({
+                defaultDate: "+1w",
+                changeMonth: true,
+                numberOfMonths: 2,
+                onClose: function (selectedDate) {
+                    $("#datepickerstart").datepicker("option", "maxDate", selectedDate);
+                }
+            });
         });
     });
 
+    function Initialize() {
+
+        // Google has tweaked their interface somewhat - this tells the api to use that new UI
+        google.maps.visualRefresh = true;
+        var Liverpool = new google.maps.LatLng(53.408841, -2.981397);
+
+        // These are options that set initial zoom level, where the map is centered globally to start, and the type of map to show
+        var mapOptions = {
+            scrollwheel: false,
+            zoom: 14,
+            center: Liverpool,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+            //mapTypeId: google.maps.MapTypeId.G_NORMAL_MAP
+        };
+
+        // This makes the div with id "map_canvas" a google map
+        map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
+        var defaultBounds = new google.maps.LatLngBounds(
+            new google.maps.LatLng(-33.8902, 151.1759),
+            new google.maps.LatLng(-33.8474, 151.2631));
+        map.fitBounds(defaultBounds);
+
+        //map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+        var startValue = (document.getElementById('startvalue'));
+        var endValue = (document.getElementById('endvalue'));
+
+        var startSearchBox = new google.maps.places.SearchBox(startValue);
+        var endSearchBox = new google.maps.places.SearchBox(endValue);
+
+        markers = [];
+
+        // [START region_getplaces]
+        // Listen for the event fired when the user selects an item from the
+        // pick list. Retrieve the matching places for that item.
+        google.maps.event.addListener(startSearchBox, 'places_changed', function () {
+            var places = startSearchBox.getPlaces();
+
+            if (places.length == 0) {
+                return;
+            }
+            for (var i = 0, marker; marker = markers[i]; i++) {
+                marker.setMap(null);
+            }
+
+            // For each place, get the icon, place name, and location.
+            markers = [];
+            var bounds = new google.maps.LatLngBounds();
+            for (var i = 0, place; place = places[i]; i++) {
+                var image = {
+                    url: place.icon,
+                    size: new google.maps.Size(71, 71),
+                    origin: new google.maps.Point(0, 0),
+                    anchor: new google.maps.Point(17, 34),
+                    scaledSize: new google.maps.Size(25, 25)
+                };
+
+                // Create a marker for each place.
+                var marker = new google.maps.Marker({
+                    map: map,
+                    icon: image,
+                    title: place.name,
+                    position: place.geometry.location
+                });
+
+                markers.push(marker);
+
+                bounds.extend(place.geometry.location);
+            }
+
+            map.fitBounds(bounds);
+        });
+
+        google.maps.event.addListener(endSearchBox, 'places_changed', function () {
+            var places = endSearchBox.getPlaces();
+
+            if (places.length == 0) {
+                return;
+            }
+            for (var i = 0, marker; marker = markers[i]; i++) {
+                marker.setMap(null);
+            }
+
+            // For each place, get the icon, place name, and location.
+            markers = [];
+            var bounds = new google.maps.LatLngBounds();
+            for (var i = 0, place; place = places[i]; i++) {
+                var image = {
+                    url: place.icon,
+                    size: new google.maps.Size(71, 71),
+                    origin: new google.maps.Point(0, 0),
+                    anchor: new google.maps.Point(17, 34),
+                    scaledSize: new google.maps.Size(25, 25)
+                };
+
+                // Create a marker for each place.
+                var marker = new google.maps.Marker({
+                    map: map,
+                    icon: image,
+                    title: place.name,
+                    position: place.geometry.location
+                });
+
+                markers.push(marker);
+
+                bounds.extend(place.geometry.location);
+            }
+
+            map.fitBounds(bounds);
+            calcRoute();
+        });
+        // [END region_getplaces]
+
+        // Bias the SearchBox results towards places that are within the bounds of the
+        // current map's viewport.
+        google.maps.event.addListener(map, 'bounds_changed', function () {
+            var bounds = map.getBounds();
+            startSearchBox.setBounds(bounds);
+            endSearchBox.setBounds(bounds);
+        });
+
+        stepDisplay = new google.maps.InfoWindow();
+        directionsDisplay = new google.maps.DirectionsRenderer();
+        var latlng = new google.maps.LatLng(-34.397, 150.644);
+
+        directionsDisplay.setMap(map);
+        //directionsDisplay.setPanel(document.getElementById('directionpanel'));
+    }
+
+    function calcRoute() {
+        var directionsService = new google.maps.DirectionsService();
+        var start = document.getElementById('startvalue').value;
+        var end = document.getElementById('endvalue').value;
+        var request = {
+            origin: start,
+            destination: end,
+            travelMode: google.maps.TravelMode.TRANSIT,
+            unitSystem: google.maps.UnitSystem.METRIC
+        };
+        directionsService.route(request, function (result, status) {
+            if (status == google.maps.DirectionsStatus.OK) {
+                directionsDisplay.setDirections(result);
+                showSteps(result);
+            }
+        });
+    }
+
+    function showSteps(directionResult) {
+        var myRoute = directionResult.routes[0].legs[0];
+
+        for (var i = 0; i < myRoute.steps.length; i++) {
+            var innermarker = new google.maps.Marker({
+                position: myRoute.steps[i].start_point,
+                map: map
+            });
+            attachInstructionText(innermarker, myRoute.steps[i].instructions);
+            markers[i] = innermarker;
+        }
+    }
+
+    function attachInstructionText(waymarker, text) {
+        google.maps.event.addListener(waymarker, 'click', function () {
+            stepDisplay.setContent(text);
+            stepDisplay.open(map, waymarker);
+        });
+    }
 </script>
