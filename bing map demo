@@ -1,0 +1,188 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.5.1.js" type="text/javascript"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/jquery-ui.js" type="text/javascript"></script>
+    <link href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/themes/redmond/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0&mkt=zh-CN,en-us"></script>
+    <script type="text/javascript">
+
+        var map = null;
+        var keyCredentials = "AhyTz5ChTP2XN6uMNDxUEWT1zn2YVWKNrW5CS2CtTUm-jJBgpvF74TKRQqoogYd7";
+
+        function GetMap() {
+            // Initialize the map
+            map = new Microsoft.Maps.Map(
+                document.getElementById("mapDiv"),
+                {
+                    credentials: keyCredentials,
+                    mapTypeId: Microsoft.Maps.MapTypeId.auto,
+                    showCopyright: false
+                });
+        }
+
+        function ClickRoute(credentials) {
+            map.getCredentials(MakeRouteRequest);
+        }
+
+        function MarkInMap(credentials) {
+            map.getCredentials(MarkPointRequest);
+        }
+
+        function MakeRouteRequest(credentials) {
+            var routeRequest = "http://dev.virtualearth.net/REST/v1/Routes?wp.0=" +
+                document.getElementById('txtStart').value + "&wp.1=" + document.getElementById('txtEnd').value + "&routePathOutput=Points&output=json&jsonp=RouteCallback&key=" + credentials;
+            CallRestService(routeRequest);
+        }
+
+        function MarkPointRequest(credentials) {
+            var routeRequest = "http://dev.virtualearth.net/REST/v1/Routes?wp.0=" +
+                document.getElementById('txtStart').value + "&wp.1=" + document.getElementById('txtStart').value + "&routePathOutput=Points&output=json&jsonp=MarkPointRequestCallBack&key=" + credentials;
+            CallRestService(routeRequest);
+        }
+
+        function MarkPointRequestCallBack(result) {
+            if (result &&
+                result.resourceSets &&
+                result.resourceSets.length > 0 &&
+                result.resourceSets[0].resources &&
+                result.resourceSets[0].resources.length > 0) {
+
+                // Set the map view
+                var bbox = result.resourceSets[0].resources[0].bbox;
+                var viewBoundaries = Microsoft.Maps.LocationRect.fromLocations(
+                    new Microsoft.Maps.Location(bbox[0], bbox[1]),
+                    new Microsoft.Maps.Location(bbox[2], bbox[3]));
+                map.setView({ bounds: viewBoundaries });
+
+                // Draw the route
+                var routeline = result.resourceSets[0].resources[0].routePath.line;
+                var routepoints = new Array();
+
+                for (var i = 0; i < routeline.coordinates.length; i++) {
+                    routepoints[i] = new Microsoft.Maps.Location(routeline.coordinates[i][0], routeline.coordinates[i][1]);
+                }
+
+                // Draw the marker on the map
+                map.entities.clear();
+                var pin = new Microsoft.Maps.Pushpin(routepoints[0]);
+                map.entities.push(pin);
+            }
+        }
+
+        function RouteCallback(result) {
+            if (result &&
+                result.resourceSets &&
+                result.resourceSets.length > 0 &&
+                result.resourceSets[0].resources &&
+                result.resourceSets[0].resources.length > 0) {
+
+                // Set the map view
+                var bbox = result.resourceSets[0].resources[0].bbox;
+                var viewBoundaries = Microsoft.Maps.LocationRect.fromLocations(
+                    new Microsoft.Maps.Location(bbox[0], bbox[1]),
+                    new Microsoft.Maps.Location(bbox[2], bbox[3]));
+                map.setView({ bounds: viewBoundaries });
+
+                // Draw the route
+                var routeline = result.resourceSets[0].resources[0].routePath.line;
+                var routepoints = new Array();
+
+                for (var i = 0; i < routeline.coordinates.length; i++) {
+                    routepoints[i] = new Microsoft.Maps.Location(routeline.coordinates[i][0], routeline.coordinates[i][1]);
+                }
+
+                // Draw the route on the map
+                map.entities.clear();
+                var routeshape = new Microsoft.Maps.Polyline(routepoints, { strokeColor: new Microsoft.Maps.Color(200, 0, 0, 200) });
+                map.entities.push(routeshape);
+                var pin = new Microsoft.Maps.Pushpin(routepoints[0]);
+
+                map.entities.push(pin);
+                pin = new Microsoft.Maps.Pushpin(routepoints[routeline.coordinates.length - 1]);
+                map.entities.push(pin);
+            }
+        }
+
+        function CallRestService(request) {
+            var script = document.createElement("script");
+            script.setAttribute("type", "text/javascript");
+            script.setAttribute("src", request);
+            document.body.appendChild(script);
+        }
+
+        $(document).ready(function () {
+            $("#txtStart").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: "http://dev.virtualearth.net/REST/v1/Locations?&mkt=zh-CN",
+                        dataType: "jsonp",
+                        data: {
+                            key: keyCredentials,
+                            q: request.term
+                        },
+                        jsonp: "jsonp",
+                        success: function (data) {
+                            var result = data.resourceSets[0];
+                            if (result) {
+                                if (result.estimatedTotal > 0) {
+                                    response($.map(result.resources, function (item) {
+                                        return {
+                                            data: item,
+                                            label: item.name + ' (' + item.address.countryRegion + ')',
+                                            value: item.name
+                                        }
+                                    }));
+                                }
+                            }
+                        }
+                    });
+                },
+                minLength: 1,
+                select: function (event, ui) {
+                    MarkInMap();
+                }
+            });
+            $("#txtEnd").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: "http://dev.virtualearth.net/REST/v1/Locations?&mkt=zh-CN",
+                        dataType: "jsonp",
+                        data: {
+                            key: keyCredentials,
+                            q: request.term
+                        },
+                        jsonp: "jsonp",
+                        success: function (data) {
+                            var result = data.resourceSets[0];
+                            if (result) {
+                                if (result.estimatedTotal > 0) {
+                                    response($.map(result.resources, function (item) {
+                                        return {
+                                            data: item,
+                                            label: item.name + ' (' + item.address.countryRegion + ')',
+                                            value: item.name
+                                        }
+                                    }));
+                                }
+                            }
+                        }
+                    });
+                },
+                minLength: 1,
+                select: function (event, ui) {
+                    ClickRoute();
+                }
+            });
+        });
+
+    </script>
+</head>
+<body onload="GetMap();">
+    <div id='mapDiv' style="position:relative; width:500px; height:500px;"></div>
+    <input id="txtStart" type="text" style="width:100px;" />
+    <input id="txtEnd" type="text" style="width:100px;" />
+</body>
+</html>
